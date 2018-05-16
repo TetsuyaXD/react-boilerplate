@@ -30,7 +30,16 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-      { test: /\.js$/, loader: "source-map-loader" },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
       {
         test: /\.(png|jpg|gif)$/,
         use: [
