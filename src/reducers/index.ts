@@ -1,12 +1,13 @@
+import { IAction, IState } from './../models';
 import {
     GET_EVENTS
 } from "../actions";
 
-const initialState = {
-  articles: []
+const initialState: IState = {
+  events: []
 };
 
-const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action: IAction) => {
     switch (action.type) {
       case GET_EVENTS:
         return { ...state, events: action.payload };

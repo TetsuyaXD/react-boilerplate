@@ -2,6 +2,11 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+  entry: "./src/index.tsx",
+  devtool: "source-map",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
   module: {
     rules: [
       {
@@ -23,7 +28,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
-      }
+      },
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+      { test: /\.js$/, loader: "source-map-loader" },
     ]
   },
   plugins: [
