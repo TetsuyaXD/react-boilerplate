@@ -31,11 +31,20 @@ module.exports = {
       },
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
       { test: /\.js$/, loader: "source-map-loader" },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
+      }
     ]
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./public/index.html",
       filename: "./index.html"
     }),
     new MiniCssExtractPlugin({
