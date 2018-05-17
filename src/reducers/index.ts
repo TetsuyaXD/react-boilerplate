@@ -1,19 +1,8 @@
-import { IAction, IState } from './../models';
-import {
-    GET_EVENTS
-} from "../actions";
+import { combineReducers } from 'redux';
+import { items, itemsHasErrored, itemsIsLoading } from './items';
 
-const initialState: IState = {
-  events: []
-};
-
-const rootReducer = (state = initialState, action: IAction) => {
-    switch (action.type) {
-      case GET_EVENTS:
-        return { ...state, events: action.payload };
-      default:
-        return state;
-    }
-  };
-
-export default rootReducer;
+export default combineReducers({
+    items,
+    itemsHasErrored,
+    itemsIsLoading
+});

@@ -8,7 +8,7 @@ import './App.css';
 const App = () => {
   return (
     <div>
-      <ItemList textA="lol"/>
+      <ItemList/>
     </div>
   );
 };

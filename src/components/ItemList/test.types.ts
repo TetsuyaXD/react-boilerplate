@@ -1,5 +1,8 @@
 export interface IItemListProps {
-    textA: string
+    fetchData: (url:string) => void
+    items: IItem[]
+    isLoading: boolean
+    hasErrored: boolean
 }
 
 export interface IItemListState {

@@ -15,5 +15,12 @@ export interface IEvent {
 }
 
 export interface IState {
-    events: IEvent[]
+    items: any;
+    itemsHasErrored: any;
+    itemsIsLoading: any; 
+}
+
+export interface IItem {
+    id: number
+    label: string
 }

@@ -1,6 +1,30 @@
-export const GET_EVENTS = 'GET_EVENTS';
-export const GET_EVENT = 'GET_EVENT';
-export const POST_EVENT = 'POST_EVENT';
-export const DELETE_EVENT = 'DELETE_EVENT';
+import { IItem } from "../models";
 
-export const getEvents = () => ({ type: GET_EVENTS, payload: {} });
+export const ITEMS_HAS_ERRORED = 'ITEMS_HAS_ERRORED';
+export const ITEMS_IS_LOADING = 'ITEMS_IS_LOADING';
+export const ITEMS_FETCH_DATA_SUCCESS = 'ITEMS_FETCH_DATA_SUCCESS';
+
+export function itemsHasErrored(bool:boolean) {
+    return {
+        type: ITEMS_HAS_ERRORED,
+        payload: {
+            hasErrored: bool
+        }
+    };
+}
+export function itemsIsLoading(bool:boolean) {
+    return {
+        type: ITEMS_IS_LOADING,
+        payload: {
+            isLoading: bool
+        }
+    };
+}
+export function itemsFetchDataSuccess(items:IItem[]) {
+    return {
+        type: ITEMS_FETCH_DATA_SUCCESS,
+        payload: {
+            items
+        }
+    };
+}
