@@ -1,17 +1,16 @@
 import { IAction, IItem } from './../models/index';
 
-
 interface IItemState {
-    items: IItem[],
-    hasErrored: boolean,
-    isLoading: boolean
+    items: IItem[];
+    hasErrored: boolean;
+    isLoading: boolean;
 }
 
 const initialState: IItemState = {
     items: [],
     hasErrored: false,
-    isLoading: false
-}
+    isLoading: false,
+};
 
 export default function items(state = initialState, action: IAction) {
     switch (action.type) {

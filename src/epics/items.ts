@@ -1,11 +1,11 @@
-import { 
-    itemsIsLoading,
+import {
     itemsFetchDataSuccess,
-    itemsHasErrored
-} from "../actions";
+    itemsHasErrored,
+    itemsIsLoading,
+} from '../actions';
 
-export function itemsFetchData(url:string) {
-    return (dispatch:any) => {
+export function itemsFetchData(url: string) {
+    return (dispatch: any) => {
         dispatch(itemsIsLoading(true));
         fetch(url)
             .then((response) => {
