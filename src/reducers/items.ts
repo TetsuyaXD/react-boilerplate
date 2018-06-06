@@ -1,27 +1,28 @@
 import { IAction, IItem } from './../models/index';
 
 
-export function itemsHasErrored(state = false, action: IAction) {
-  switch (action.type) {
-      case 'ITEMS_HAS_ERRORED':
-          return action.payload.hasErrored;
-      default:
-          return state;
-  }
+interface IItemState {
+    items: IItem[],
+    hasErrored: boolean,
+    isLoading: boolean
 }
-export function itemsIsLoading(state = false, action: IAction) {
-  switch (action.type) {
-      case 'ITEMS_IS_LOADING':
-          return action.payload.isLoading;
-      default:
-          return state;
-  }
+
+const initialState: IItemState = {
+    items: [],
+    hasErrored: false,
+    isLoading: false
 }
-export function items(state:IItem[] = [], action: IAction) {
-  switch (action.type) {
-      case 'ITEMS_FETCH_DATA_SUCCESS':
-          return action.payload.items;
-      default:
-          return state;
+
+export default function items(state = initialState, action: IAction) {
+    console.log(state, action)
+    switch (action.type) {
+        case 'ITEMS_HAS_ERRORED':
+            return {...state, hasErrored: action.payload.hasErrored};
+        case 'ITEMS_IS_LOADING':
+            return {...state, isLoading: action.payload.isLoading};
+        case 'ITEMS_FETCH_DATA_SUCCESS':
+            return{...state, items: action.payload.items};
+        default:
+            return state;
+    }
   }
-}
