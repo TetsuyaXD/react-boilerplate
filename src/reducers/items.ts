@@ -14,7 +14,6 @@ const initialState: IItemState = {
 }
 
 export default function items(state = initialState, action: IAction) {
-    console.log(state, action)
     switch (action.type) {
         case 'ITEMS_HAS_ERRORED':
             return {...state, hasErrored: action.payload.hasErrored};

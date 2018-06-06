@@ -55,7 +55,6 @@ class ItemList extends React.Component<IItemListProps, IItemListState> {
     }
 }
 const mapStateToProps = (state:IState) => {
-    console.log(state)
     return {
         items: state.items.items,
         hasErrored: state.items.hasErrored,
